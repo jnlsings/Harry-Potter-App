@@ -8,12 +8,17 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedCharacter: ''
+      // selectedCharacter: '',
+      apiHouses: []
     };
   }
 
-  showSelectedCharacter = selectedCharacter => {
-    this.setState({ selectedCharacter });
+  // showSelectedCharacter = selectedCharacter => {
+  //   this.setState({ selectedCharacter });
+  // };
+
+  showApiHouses = apiHouses => {
+    this.setState({ apiHouses });
   };
 
   render() {
@@ -26,7 +31,18 @@ class App extends Component {
         </header>
         <main>
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route
+              exact
+              path="/"
+              render={() => <Home showApiHouses={this.showApiHouses} />}
+            />
+            {/* <Route
+              exact
+              path="/CharStats/:name"
+              render={() => (
+                <CharStats selectedCharacter={this.state.selectedCharacter} />
+              )}
+            /> */}
           </Switch>
         </main>
         {/* <Home /> */}
