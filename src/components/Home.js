@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../App.css';
 import House from './House';
 import { Link } from 'react-router-dom';
 
@@ -12,28 +13,21 @@ class Home extends Component {
       houseList = houses.map((house, index) => {
         // let houseName = house.name;
         // console.log(houseName);
-        return <li>{house.name}</li>;
+        let pathName = `/${house.name}`;
+        return (
+          <div key={`${house}-${index}`}>
+            <Link className="house-link" to={pathName}>
+              {house.name}
+            </Link>
+          </div>
+        );
       });
     }
 
-    // let pathName = `/${house.name}`;
-
-    //   return (
-    //     <>
-    //       <p>{houseName}</p>
-    //       <div key={`${house}-${index}`}>
-    //         {/* <Link to={pathName}>{house.name}</Link> */}
-    //       </div>
-    //     </>
-    //   );
-    // });
-
     return (
-      <div>
-        <h2>Houses</h2>
-        {/* <h4>{apiHouses}</h4> */}
-        <p>{this.props.name}</p>
-        <p>{houseList}</p>
+      <div className="home-page">
+        <h2 className="choose-house">*Choose Your Hogwarts House*</h2>
+        <div className="house-list">{houseList}</div>
       </div>
     );
   }

@@ -15,3 +15,20 @@
   text-decoration: none;
   color: white;
 }
+
+.choose-house {
+  display: flex;
+  justify-content: center;
+}
+
+.house-link {
+  display: flex;
+  color: black;
+  text-decoration: none;
+  margin: 10px;
+}
+
+.house-list {
+  display: flex;
+  justify-content: center;
+}
