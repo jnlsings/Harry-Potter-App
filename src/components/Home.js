@@ -3,53 +3,65 @@ import House from './House';
 import { Link } from 'react-router-dom';
 
 class Home extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     name: null
-  //   };
-  // }
-  // componentDidMount() {
-  //   console.log(this.props);
-  //   const apiKey = process.env.REACT_APP_HP_KEY;
-  //   const url = `https://www.potterapi.com/v1/houses?key=${apiKey}`;
-
-  // fetch(url)
-  //   .then(response => response.json())
-  //   .then(response => {
-  //     console.log(response);
-  //     this.setState({ houses: response });
-  //   });
-  // }
   render() {
     console.log(this.props);
-    // map over houses array
-    let houseList = this.props.houses.map((name, index) => {
-      let houseName = this.props.houses.name;
-      console.log({ houseName });
-      // let pathName = `/${house.name}`;
+    let houses = this.props.houses[0];
+    console.log(houses);
+    let houseList;
+    if (houses) {
+      houseList = houses.map((house, index) => {
+        // let houseName = house.name;
+        // console.log(houseName);
+        return <li>{house.name}</li>;
+      });
+    }
 
-      return (
-        <>
-          <p>{houseName}</p>
-          <div key={`${name}-${index}`}>
-            {/* <Link to={pathName}>{house.name}</Link> */}
-          </div>
-        </>
-      );
-    });
+    // let pathName = `/${house.name}`;
+
+    //   return (
+    //     <>
+    //       <p>{houseName}</p>
+    //       <div key={`${house}-${index}`}>
+    //         {/* <Link to={pathName}>{house.name}</Link> */}
+    //       </div>
+    //     </>
+    //   );
+    // });
 
     return (
       <div>
         <h2>Houses</h2>
         {/* <h4>{apiHouses}</h4> */}
         <p>{this.props.name}</p>
-        {/* <p>{houseName}</p> */}
+        <p>{houseList}</p>
       </div>
     );
   }
 }
 
+export default Home;
+
+//previous code from when had fetch in this file
+// constructor(props) {
+//   super(props);
+//   this.state = {
+//     name: null
+//   };
+// }
+// componentDidMount() {
+//   console.log(this.props);
+//   const apiKey = process.env.REACT_APP_HP_KEY;
+//   const url = `https://www.potterapi.com/v1/houses?key=${apiKey}`;
+
+// fetch(url)
+//   .then(response => response.json())
+//   .then(response => {
+//     console.log(response);
+//     this.setState({ houses: response });
+//   });
+// }
+
+//video code
 // class CharStats extends Component {
 //   state = {
 //     loading: true,
@@ -79,5 +91,3 @@ class Home extends Component {
 //   }
 //   arr;
 // }
-
-export default Home;
