@@ -8,33 +8,50 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // selectedCharacter: '',
-      apiHouses: []
+      isLoaded: false,
+      houses: []
     };
   }
+  componentDidMount() {
+    const apiKey = process.env.REACT_APP_HP_KEY;
+    const url = `https://www.potterapi.com/v1/houses?key=${apiKey}`;
 
+    fetch(url)
+      .then(response => response.json())
+      .then(response => {
+        console.log(response);
+        this.setState({ houses: [response] });
+      });
+  }
   // showSelectedCharacter = selectedCharacter => {
   //   this.setState({ selectedCharacter });
   // };
 
-  showApiHouses = apiHouses => {
-    this.setState({ apiHouses });
-  };
+  // showApiHouses = apiHouses => {
+  //   this.setState({ apiHouses });
+  // };
 
   render() {
     return (
       <div>
         <header className="app-header">
           <nav>
-            <Link to="/">Harry Potter App</Link>
+            <Link className="home-link" to="/">
+              Harry Potter App
+            </Link>
           </nav>
         </header>
+        <div>
+          {/* {this.state.houses.map(house => (
+            <Home key={house.name} house={house.name} />
+          ))} */}
+        </div>
         <main>
           <Switch>
             <Route
               exact
               path="/"
-              render={() => <Home showApiHouses={this.showApiHouses} />}
+              render={() => <Home houses={this.state.houses} />}
             />
             {/* <Route
               exact

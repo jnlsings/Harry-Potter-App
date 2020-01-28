@@ -1,0 +1,17 @@
+* {
+  font-family: 'Libre Baskerville', serif;
+}
+
+.app-header {
+  margin: 0 auto;
+  background-color: black;
+  color: white;
+  padding: 40px 40px 40px 20px;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.home-link {
+  text-decoration: none;
+  color: white;
+}
