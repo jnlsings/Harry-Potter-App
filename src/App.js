@@ -2,34 +2,28 @@ import React, { Component } from 'react';
 import './App.css';
 import { Link, Switch, Route } from 'react-router-dom';
 import Home from './components/Home';
+import House from './components/House';
 import CharStats from './components/CharStats';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoaded: false,
-      houses: []
+      houses: [],
+      characters: []
     };
   }
   componentDidMount() {
     const apiKey = process.env.REACT_APP_HP_KEY;
-    const url = `https://www.potterapi.com/v1/houses?key=${apiKey}`;
+    const housesUrl = `https://www.potterapi.com/v1/houses?key=${apiKey}`;
 
-    fetch(url)
+    fetch(housesUrl)
       .then(response => response.json())
       .then(response => {
         console.log(response);
         this.setState({ houses: [response] });
       });
   }
-  // showSelectedCharacter = selectedCharacter => {
-  //   this.setState({ selectedCharacter });
-  // };
-
-  // showApiHouses = apiHouses => {
-  //   this.setState({ apiHouses });
-  // };
 
   render() {
     return (
@@ -53,20 +47,34 @@ class App extends Component {
               path="/"
               render={() => <Home houses={this.state.houses} />}
             />
-            {/* <Route
+            <Route
               exact
-              path="/CharStats/:name"
-              render={() => (
-                <CharStats selectedCharacter={this.state.selectedCharacter} />
-              )}
+              path="/CharStats"
+              render={() => <CharStats characters={this.state.characters} />}
+            />
+            {/* <Route
+              path="/Gryffindor"
+              render={() => <Home houses={this.state.houses} />}
             /> */}
+            <Route
+              exact
+              path="/:house"
+              render={() => <House house={this.state.houses} />}
+            />
           </Switch>
         </main>
-        {/* <Home /> */}
-        <CharStats />
+        {/* <CharStats /> */}
       </div>
     );
   }
 }
 
 export default App;
+
+// showSelectedCharacter = selectedCharacter => {
+//   this.setState({ selectedCharacter });
+// };
+
+// showApiHouses = apiHouses => {
+//   this.setState({ apiHouses });
+// };

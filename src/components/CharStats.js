@@ -1,20 +1,30 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class CharStats extends Component {
-  componentDidMount() {
-    const apiKey = process.env.REACT_APP_HP_KEY;
-    const url = `https://www.potterapi.com/v1/characters?key=${apiKey}`;
-
-    fetch(url)
-      .then(response => response.json())
-      .then(console.log)
-      .catch(console.error);
-    //   .then(response => {
-    //     this.props.setSelectedCharacter(response[0]);});
-  }
-
   render() {
-    return <div></div>;
+    console.log(this.props);
+    let characters = this.props.characters[0];
+    console.log(characters);
+    let characterList;
+    if (characters) {
+      characterList = characters.map((character, index) => {
+        let pathName = `/${character.name}`;
+        return (
+          <div key={`${character}-${index}`}>
+            <Link className="character-link" to={pathName}>
+              {character.name}
+            </Link>
+          </div>
+        );
+      });
+      return (
+        <>
+          <div>Character List</div>
+          <div>{characterList}</div>
+        </>
+      );
+    }
   }
 }
 
