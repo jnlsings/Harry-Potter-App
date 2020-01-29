@@ -4,13 +4,13 @@ import { Link, Switch, Route } from 'react-router-dom';
 import Home from './components/Home';
 import House from './components/House';
 import CharStats from './components/CharStats';
+import Character from './components/Character';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      houses: [],
-      characters: []
+      houses: []
     };
   }
   componentDidMount() {
@@ -52,14 +52,15 @@ class App extends Component {
               path="/CharStats"
               render={() => <CharStats characters={this.state.characters} />}
             />
-            {/* <Route
-              path="/Gryffindor"
-              render={() => <Home houses={this.state.houses} />}
-            /> */}
             <Route
               exact
               path="/:house"
-              render={() => <House house={this.state.houses} />}
+              render={props => <House {...props} house={this.state.houses} />}
+            />
+            <Route
+              exact
+              path="/:character"
+              render={() => <Character character={this.state.characters} />}
             />
           </Switch>
         </main>
@@ -70,11 +71,3 @@ class App extends Component {
 }
 
 export default App;
-
-// showSelectedCharacter = selectedCharacter => {
-//   this.setState({ selectedCharacter });
-// };
-
-// showApiHouses = apiHouses => {
-//   this.setState({ apiHouses });
-// };

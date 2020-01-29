@@ -2,9 +2,29 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 class CharStats extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      characters: []
+    };
+  }
+
+  componentDidMount() {
+    console.log(this.state.characters.name);
+    const apiKey = process.env.REACT_APP_HP_KEY;
+    const charactersUrl = `https://www.potterapi.com/v1/characters?key=${apiKey}`;
+
+    fetch(charactersUrl)
+      .then(response => response.json())
+      .then(response => {
+        console.log(response);
+        this.setState({ characters: [response] });
+      });
+  }
+
   render() {
-    console.log(this.props);
-    let characters = this.props.characters[0];
+    console.log(this.state);
+    let characters = this.state.characters[0];
     console.log(characters);
     let characterList;
     if (characters) {
@@ -27,6 +47,8 @@ class CharStats extends Component {
     }
   }
 }
+
+export default CharStats;
 
 // class CharStats extends Component {
 //   state = {
@@ -57,5 +79,3 @@ class CharStats extends Component {
 //   }
 //   arr;
 // }
-
-export default CharStats;
