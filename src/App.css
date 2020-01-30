@@ -12,11 +12,8 @@
 }
 
 .home-link {
-  /* display: flex; */
-  /* flex-direction: row; */
   text-decoration: none;
   color: white;
-  /* justify-content: flex-start; */
 }
 
 .characters-link {
@@ -25,7 +22,6 @@
   color: white;
   text-align: right;
   margin: 0px 0px 0px 40px;
-  /* justify-content: right; */
 }
 
 .choose-house {
@@ -38,7 +34,6 @@
   display: flex;
   color: black;
   text-decoration: none;
-  /* put space between each house name */
   margin: 10px;
 }
 
@@ -50,18 +45,9 @@
 
 .house-page {
   display: flex;
-  /* flex-direction: row; */
-  /* align-items: flex-start; */
   justify-content: center;
   flex-wrap: wrap;
-  /* flex-wrap: wrap; */
-  /* text-decoration: none; */
 }
-
-/* .house-column-1,
-.house-column-2 {
-  flex-basis: 20%;
-} */
 
 .house-name-div {
   display: flex;
@@ -71,14 +57,9 @@
 .member-list {
   list-style: none;
   text-decoration: none;
-  /* flex-wrap: wrap; */
-  /* max-width: 200px; */
-  /* justify-content: center; */
 }
 
 .character-link {
   text-decoration: none;
   color: black;
 }
-
-/* if want columns to be equal width, try flex-basis: 50% */

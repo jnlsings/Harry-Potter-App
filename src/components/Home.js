@@ -5,9 +5,7 @@ import { Link } from 'react-router-dom';
 
 class Home extends Component {
   render() {
-    console.log(this.props);
     let houses = this.props.houses[0];
-    console.log(houses);
     let houseList;
     if (houses) {
       houseList = houses.map((house, index) => {

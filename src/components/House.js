@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../App.css';
-// import CharStats from './CharStats';
 import { Link } from 'react-router-dom';
 
 let houseNameIdArray = [
@@ -37,15 +36,12 @@ class House extends Component {
     fetch(houseIdUrl)
       .then(response => response.json())
       .then(response => {
-        console.log(response);
         this.setState({ house: [response] });
       });
   }
 
   render() {
-    console.log(this.state);
     let house = this.state.house[0];
-    console.log(house);
     let houseItem;
     if (house) {
       houseItem = house.map((house, index) => {
@@ -110,7 +106,3 @@ class House extends Component {
 }
 
 export default House;
-
-//create an object w/name and id to iterate over in order to plug in url
-//house data is stored by ID number in the API url
-// if house name is in URL address, display that house

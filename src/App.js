@@ -22,13 +22,11 @@ class App extends Component {
     fetch(housesUrl)
       .then(response => response.json())
       .then(response => {
-        console.log(response);
         this.setState({ houses: [response] });
       });
     fetch(charactersUrl)
       .then(response => response.json())
       .then(response => {
-        console.log(response);
         this.setState({ characters: [response] });
       });
   }
@@ -46,11 +44,6 @@ class App extends Component {
             </Link>
           </nav>
         </header>
-        <div>
-          {/* {this.state.houses.map(house => (
-            <Home key={house.name} house={house.name} />
-          ))} */}
-        </div>
         <main>
           <Switch>
             <Route
@@ -76,7 +69,6 @@ class App extends Component {
               )}
             />
           </Switch>
-          {/* <CharStats /> */}
         </main>
       </div>
     );
