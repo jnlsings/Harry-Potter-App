@@ -17,3 +17,7 @@ The homepage displays the various Hogwarts houses which, when clicked will take 
 ### Contribute
 
 [Contribute to Harry Potter Home](https://github.com/jnlsings/Harry-Potter-App)
+
+#### Acknowledgements
+
+Many thanks to Esin Saribudak for her assistance with this project, including fixing routes, moving API calls and simplifying map and filter methods.
