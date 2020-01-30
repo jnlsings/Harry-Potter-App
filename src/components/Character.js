@@ -13,7 +13,7 @@ class Character extends Component {
     console.log(this.props.match.params);
     let charName = this.props.match.params.character;
     console.log(charName);
-    let charNameId = this.props.character.filter(character => {
+    let charNameId = this.props.match.params.filter(character => {
       return character.name === charName;
     });
     const apiKey = process.env.REACT_APP_HP_KEY;

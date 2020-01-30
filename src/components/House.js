@@ -51,7 +51,9 @@ class House extends Component {
       houseItem = house.map((house, index) => {
         return (
           <div>
-            <h1 className="house-name">{house.name}</h1>
+            <div className="house-name-div">
+              <h1 className="house-name">{house.name}</h1>
+            </div>
             <div className="house-page" key={`${house.member}-${index}`}>
               <div className="house-column-one">
                 <h4>Mascot: </h4>
@@ -63,23 +65,22 @@ class House extends Component {
                 <h4>Founder: </h4>
                 {house.founder}
                 <h4>Values:</h4>
-                <ul>
+                <div>
                   {house.values.map(value => {
                     return <div key={value}>{value}</div>;
                   })}
-                </ul>
+                </div>
                 <h4>Colors: </h4>
-                <ul>
+                <div>
                   {house.colors.map(color => {
                     return <div key={color}>{color}</div>;
                   })}
-                </ul>
-                <h4>School: </h4>
-                {house.school}
+                </div>
               </div>
               <div className="house-column-2">
                 <h3>House Members</h3>
-                <ul className="member-list">
+                <h5>click member for more info</h5>
+                <div className="member-list">
                   {house.members.map(member => {
                     let characterPathName = `/characters/${member.name}`;
                     return (
@@ -90,7 +91,7 @@ class House extends Component {
                       </Link>
                     );
                   })}
-                </ul>
+                </div>
               </div>
             </div>
           </div>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
 // import House from './House';
-// import CharStats from './CharStats';
 import { Link } from 'react-router-dom';
 
 class Home extends Component {
@@ -29,7 +28,6 @@ class Home extends Component {
           <h2 className="choose-house">*Choose Your Hogwarts House*</h2>
           <div className="house-list">{houseList}</div>
         </div>
-        <main>{/* <CharStats /> */}</main>
       </>
     );
   }

@@ -41,6 +41,9 @@ class App extends Component {
             <Link className="home-link" to="/">
               Harry Potter Home
             </Link>
+            <Link className="characters-link" to="/CharStats">
+              Characters
+            </Link>
           </nav>
         </header>
         <div>
@@ -75,9 +78,6 @@ class App extends Component {
           </Switch>
           {/* <CharStats /> */}
         </main>
-        <Link className="characters-link" to="/CharStats">
-          Characters
-        </Link>
       </div>
     );
   }
