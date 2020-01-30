@@ -1,8 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Harry Potter Home
 
-## Available Scripts
+The Harry Potter App is an app for Harry Potter Fans or those looking to become more familiar with individual characters. The homepage displays the various Hogwarts houses which, when clicked will take the user to that house’s stats. On each house's page, the user can click on a member to see that character's stats. Alternatively, one can access the full list of characters and their stats by clicking the "Characters" link in the header. All stats are fetched from [PotterAPI](https://potterapi.com/).
 
-In the project directory, you can run:
+![HarryPotterHomepage](https://user-images.githubusercontent.com/57021062/73469206-9636bf80-434b-11ea-8e30-b4f19cce961f.png)
 
 ### `npm start`
 
