@@ -1,0 +1,15 @@
+[
+  {
+    "name": "Gryffindor",
+    "id": "5a05e2b252f721a3cf2ea33f"
+  },
+  { "name": "Ravenclaw", "id": "5a05da69d45bd0a11bd5e06f" },
+  {
+    "name": "Slytherin",
+    "id": "5a05dc8cd45bd0a11bd5e071"
+  },
+  {
+    "name": "Hufflepuff",
+    "id": "5a05dc58d45bd0a11bd5e070"
+  }
+]

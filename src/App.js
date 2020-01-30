@@ -5,11 +5,13 @@ import Home from './components/Home';
 import House from './components/House';
 import CharStats from './components/CharStats';
 import Character from './components/Character';
+import houseData from './data/houses.json';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      // houses: { houseData },
       houses: [],
       characters: []
     };
@@ -22,8 +24,10 @@ class App extends Component {
     fetch(housesUrl)
       .then(response => response.json())
       .then(response => {
+        console.log(response);
         this.setState({ houses: [response] });
       });
+
     fetch(charactersUrl)
       .then(response => response.json())
       .then(response => {
@@ -32,6 +36,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.houses);
     return (
       <div>
         <header className="app-header">

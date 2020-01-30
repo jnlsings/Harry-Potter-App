@@ -32,6 +32,8 @@ class Character extends Component {
           {thisChar[0].wand}
           {thisChar[0].patronus && <h4>Patronus: </h4>}
           {thisChar[0].patronus}
+          {thisChar[0].animagus && <h4>Animagus: </h4>}
+          {thisChar[0].animagus}
           {thisChar[0].boggart && <h4>Boggart: </h4>}
           {thisChar[0].boggart}
           {thisChar[0].bloodStatus && <h4>Blood Status: </h4>}
