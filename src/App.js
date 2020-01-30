@@ -10,18 +10,26 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      houses: []
+      houses: [],
+      characters: []
     };
   }
   componentDidMount() {
     const apiKey = process.env.REACT_APP_HP_KEY;
     const housesUrl = `https://www.potterapi.com/v1/houses?key=${apiKey}`;
+    const charactersUrl = `https://www.potterapi.com/v1/characters?key=${apiKey}`;
 
     fetch(housesUrl)
       .then(response => response.json())
       .then(response => {
         console.log(response);
         this.setState({ houses: [response] });
+      });
+    fetch(charactersUrl)
+      .then(response => response.json())
+      .then(response => {
+        console.log(response);
+        this.setState({ characters: [response] });
       });
   }
 
@@ -31,7 +39,7 @@ class App extends Component {
         <header className="app-header">
           <nav>
             <Link className="home-link" to="/">
-              Harry Potter App
+              Harry Potter Home
             </Link>
           </nav>
         </header>
@@ -54,17 +62,22 @@ class App extends Component {
             />
             <Route
               exact
-              path="/:house"
+              path="/houses/:house"
               render={props => <House {...props} house={this.state.houses} />}
             />
             <Route
               exact
-              path="/:character"
-              render={() => <Character character={this.state.characters} />}
+              path="/characters/:character"
+              render={props => (
+                <Character {...props} character={this.state.characters} />
+              )}
             />
           </Switch>
+          {/* <CharStats /> */}
         </main>
-        {/* <CharStats /> */}
+        <Link className="characters-link" to="/CharStats">
+          Characters
+        </Link>
       </div>
     );
   }

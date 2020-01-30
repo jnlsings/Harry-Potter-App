@@ -2,37 +2,37 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 class CharStats extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      characters: []
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     characters: []
+  //   };
+  // }
 
-  componentDidMount() {
-    console.log(this.state.characters.name);
-    const apiKey = process.env.REACT_APP_HP_KEY;
-    const charactersUrl = `https://www.potterapi.com/v1/characters?key=${apiKey}`;
+  // componentDidMount() {
+  //   console.log(this.state.characters.name);
+  //   const apiKey = process.env.REACT_APP_HP_KEY;
+  //   const charactersUrl = `https://www.potterapi.com/v1/characters?key=${apiKey}`;
 
-    fetch(charactersUrl)
-      .then(response => response.json())
-      .then(response => {
-        console.log(response);
-        this.setState({ characters: [response] });
-      });
-  }
+  //   fetch(charactersUrl)
+  //     .then(response => response.json())
+  //     .then(response => {
+  //       console.log(response);
+  //       this.setState({ characters: [response] });
+  //     });
+  // }
 
   render() {
-    console.log(this.state);
-    let characters = this.state.characters[0];
+    console.log(this.props);
+    let characters = this.props.characters[0];
     console.log(characters);
     let characterList;
     if (characters) {
       characterList = characters.map((character, index) => {
-        let pathName = `/${character.name}`;
+        let characterPathName = `/characters/${character.name}`;
         return (
           <div key={`${character}-${index}`}>
-            <Link className="character-link" to={pathName}>
+            <Link className="character-link" to={characterPathName}>
               {character.name}
             </Link>
           </div>
@@ -40,10 +40,12 @@ class CharStats extends Component {
       });
       return (
         <>
-          <div>Character List</div>
+          <h3>Character List</h3>
           <div>{characterList}</div>
         </>
       );
+    } else {
+      return null;
     }
   }
 }

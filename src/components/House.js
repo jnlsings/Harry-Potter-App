@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
-import CharStats from './CharStats';
+// import CharStats from './CharStats';
 import { Link } from 'react-router-dom';
 
 let houseNameIdArray = [
@@ -17,34 +17,23 @@ let houseNameIdArray = [
     name: 'Hufflepuff',
     id: '5a05dc58d45bd0a11bd5e070'
   }
-  //Ravenclaw Slytherin Hufflepuff
 ];
 class House extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      house: [],
-      matchHouseId: ''
+      house: []
     };
   }
 
-  // if object contains {house.name} then return its id in a variable which will then put inside of the url below
-  //if pathName contains {house.name}, return
-  // matchHouseId = houseId => {
-  //   console.log(this.state.house);
-  //   // if this.state.house.name.contains()
-  // };
-
   componentDidMount() {
-    // this.matchHouseId();
-    console.log(this.state.house.name);
     let houseName = this.props.match.params.house;
     let houseNameId = houseNameIdArray.filter(house => {
       return house.name === houseName;
     });
     const apiKey = process.env.REACT_APP_HP_KEY;
     const houseIdUrl = `https://www.potterapi.com/v1/houses/${houseNameId[0].id}?key=${apiKey}`;
-    //{houseId}
+
     fetch(houseIdUrl)
       .then(response => response.json())
       .then(response => {
@@ -60,44 +49,50 @@ class House extends Component {
     let houseItem;
     if (house) {
       houseItem = house.map((house, index) => {
-        // let housePathName = `/${house.name}`;
         return (
-          <div key={`${house}-${index}`}>
-            {/* <Link className="house-link" to={housePathName}>
-            </Link> */}
-            <h1>{house.name}</h1>
-            {/* {house._id} */}
-            <h4>Mascot: </h4>
-            {house.mascot}
-            <h4>Head of House: </h4>
-            {house.headOfHouse}
-            <h4>House Ghost: </h4>
-            {house.houseGhost}
-            <h4>Founder: </h4>
-            {house.founder}
-            <h4>Values:</h4>
-            <ul>
-              {house.values.map(value => {
-                return <li key={value}>{value}</li>;
-              })}
-            </ul>
-            <h4>Colors: </h4>
-            <ul>
-              {house.colors.map(color => {
-                return <li key={color}>{color}</li>;
-              })}
-            </ul>
-            <h4>School: </h4>
-            {house.school}
-            {/* <Link className="members-link" to=`/$`>
-              House Members
-            </Link> */}
-            <h3>House Members</h3>
-            <ul>
-              {house.members.map(member => {
-                return <li key={member.id}>{member.name}</li>;
-              })}
-            </ul>
+          <div>
+            <h1 className="house-name">{house.name}</h1>
+            <div className="house-page" key={`${house.member}-${index}`}>
+              <div className="house-column-one">
+                <h4>Mascot: </h4>
+                {house.mascot}
+                <h4>Head of House: </h4>
+                {house.headOfHouse}
+                <h4>House Ghost: </h4>
+                {house.houseGhost}
+                <h4>Founder: </h4>
+                {house.founder}
+                <h4>Values:</h4>
+                <ul>
+                  {house.values.map(value => {
+                    return <div key={value}>{value}</div>;
+                  })}
+                </ul>
+                <h4>Colors: </h4>
+                <ul>
+                  {house.colors.map(color => {
+                    return <div key={color}>{color}</div>;
+                  })}
+                </ul>
+                <h4>School: </h4>
+                {house.school}
+              </div>
+              <div className="house-column-2">
+                <h3>House Members</h3>
+                <ul className="member-list">
+                  {house.members.map(member => {
+                    let characterPathName = `/characters/${member.name}`;
+                    return (
+                      <Link className="character-link" to={characterPathName}>
+                        <li className="member-name" key={member.id}>
+                          {member.name}
+                        </li>
+                      </Link>
+                    );
+                  })}
+                </ul>
+              </div>
+            </div>
           </div>
         );
       });

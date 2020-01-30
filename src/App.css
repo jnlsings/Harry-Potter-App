@@ -23,6 +23,13 @@
   justify-content: center;
 }
 
+.characters-link {
+  display: flex;
+  text-decoration: none;
+  color: black;
+  justify-content: center;
+}
+
 .house-link {
   display: flex;
   color: black;
@@ -36,3 +43,38 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+
+.house-page {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+  /* text-decoration: none; */
+}
+/* 
+.house-column-1,
+.house-column-2 {
+  flex: 50%;
+  /* justify-content: flex-end; */
+/* } */
+
+/* .house-name {
+  justify-content: center;
+} */
+
+.member-list {
+  list-style: none;
+  text-decoration: none;
+  /* flex-wrap: wrap; */
+  /* max-width: 200px; */
+  /* justify-content: center; */
+}
+
+.character-link {
+  text-decoration: none;
+  color: black;
+}
+
+/* if want columns to be equal width, try flex-basis: 50% */

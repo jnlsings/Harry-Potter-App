@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import '../App.css';
-import House from './House';
-import CharStats from './CharStats';
-import { Link, Route } from 'react-router-dom';
+// import House from './House';
+// import CharStats from './CharStats';
+import { Link } from 'react-router-dom';
 
 class Home extends Component {
   render() {
@@ -12,10 +12,10 @@ class Home extends Component {
     let houseList;
     if (houses) {
       houseList = houses.map((house, index) => {
-        let pathName = `/${house.name}`;
+        let housePathName = `/houses/${house.name}`;
         return (
           <div key={`${house}-${index}`}>
-            <Link className="house-link" to={pathName}>
+            <Link className="house-link" to={housePathName}>
               {house.name}
             </Link>
           </div>
