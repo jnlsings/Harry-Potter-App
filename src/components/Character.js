@@ -2,46 +2,25 @@ import React, { Component } from 'react';
 import '../App.css';
 
 class Character extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      character: []
-    };
-  }
-
-  componentDidMount() {
-    console.log(this.props.match.params);
+  render() {
+    console.log(this.props.character);
     let charName = this.props.match.params.character;
     console.log(charName);
-    let charNameId = this.props.match.params.filter(character => {
+    let charArray = this.props.character[0];
+    console.log(charArray);
+    let thisChar = charArray.filter(character => {
       return character.name === charName;
     });
-    const apiKey = process.env.REACT_APP_HP_KEY;
-    const charIdUrl = `https://www.potterapi.com/v1/characters/${charNameId[0].id}?key=${apiKey}`;
-
-    fetch(charIdUrl)
-      .then(response => response.json())
-      .then(response => {
-        console.log(response);
-        this.setState({ character: [response] });
-      });
-  }
-
-  render() {
-    console.log(this.state);
-    let character = this.state.character[0];
-    console.log(character);
-    let charItem;
-    if (character) {
-      charItem = character.map((character, index) => {
-        return (
-          <div className="character-page" key={`${character.name}-${index}`}>
-            <h3>{character.name}</h3>
-          </div>
-        );
-      });
+    console.log(thisChar);
+    if (thisChar) {
+      return (
+        <div className="character-page">
+          <h3>{thisChar[0].name}</h3>
+        </div>
+      );
+    } else {
+      return null;
     }
-    return <div>{charItem}</div>;
   }
 }
 

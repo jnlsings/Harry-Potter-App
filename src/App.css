@@ -31,6 +31,7 @@
 .choose-house {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .house-link {
@@ -57,10 +58,10 @@
   /* text-decoration: none; */
 }
 
-.house-column-1,
+/* .house-column-1,
 .house-column-2 {
   flex-basis: 20%;
-}
+} */
 
 .house-name-div {
   display: flex;
