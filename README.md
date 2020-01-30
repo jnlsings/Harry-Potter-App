@@ -8,7 +8,7 @@ Harry Potter Home is an app for Harry Potter fans or those looking to become mor
 
 ![ExCharacterPage](https://user-images.githubusercontent.com/57021062/73475329-c2573e00-4355-11ea-961d-c28ce71e80fa.png)
 
-![CharactersPage](https://user-images.githubusercontent.com/57021062/73475473-0b0ef700-4356-11ea-9159-60799a50bbf5.png)
+![CharactersPage](https://user-images.githubusercontent.com/57021062/73475473-0b0ef700-4356-11ea-9159-60799a50bbf5.png)g
 
 ### Technologies
 

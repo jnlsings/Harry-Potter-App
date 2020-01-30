@@ -5,7 +5,8 @@ import Home from './components/Home';
 import House from './components/House';
 import CharStats from './components/CharStats';
 import Character from './components/Character';
-import houseData from './data/houses.json';
+// created data file so homepage displays even if API server goes down
+// import houseData from './data/houses.json';
 
 class App extends Component {
   constructor(props) {
