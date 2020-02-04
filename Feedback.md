@@ -70,6 +70,7 @@ Criteria: Is there adequate documentation? Is the repository well-organized and 
 ### Areas for Growth:
 
 -   The contribution link just redirects to the home page of the repo; instead, it could take the user to the issues tab. In the Contribute section, you can also tell users that they can fork and clone the repo and submit suggestions via pull request.
+-   Please add some information about your planning process in the README, as well as a `planning` directory with your proposal and wire-frames.
 
 ## Hard Requirements - Complete:
 
