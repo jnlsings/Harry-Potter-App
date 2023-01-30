@@ -16,7 +16,7 @@ Built using React, JavaScript and CSS. All stats are fetched from [PotterAPI](ht
 
 ### Getting Started
 
-[Harry Potter Home](https://harrypotterapp.herokuapp.com/)
+[Harry Potter Home](https://jnlsings.github.io/Harry-Potter-App/)
 
 The homepage displays the various Hogwarts houses which, when clicked will take the user to that house’s stats. On each house's page, the user can click on a member to see that character's stats. Alternatively, one can access the full list of characters and their stats by clicking the "Characters" link in the header.
 
